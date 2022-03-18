@@ -1,0 +1,5 @@
+// Create a migration file of modification on schemas
+prisma migrate dev
+
+// Open a manager to access database
+prisma studio
