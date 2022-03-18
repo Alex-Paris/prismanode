@@ -10,12 +10,15 @@ export default class UserController {
     return response.json(users);
   }
 
-  // public async create(request: Request, response: Response): Promise<Response> {
-  //   const user_id = request.user.id;
-  //   const { provider_id, date } = request.body;
+  public async store(request: Request, response: Response): Promise<Response> {
+    const { id, name, email } = request.body;
 
-  //   const appointment = await createAppointment.execute({ provider_id, user_id, date })
+    const newUser = { id, name, email };
 
-  //   return response.json(appointment);
-  // }
+    const user = await prisma.user.create({
+      data: newUser
+    })
+
+    return response.json(user);
+  }
 }
