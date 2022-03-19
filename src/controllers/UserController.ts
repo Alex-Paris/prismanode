@@ -44,12 +44,17 @@ export default class UserController {
             }
           }
         }
+      },
+      include: {
+        groups: {
+          select: {
+            title: true
+          }
+        }
       }
     })
 
-    // const user = await prisma.user.create({
-    //   data: newUser
-    // })
+
 
     return response.json(user);
   }
